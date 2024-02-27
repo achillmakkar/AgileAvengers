@@ -12,13 +12,21 @@
 </head>
 <body>
 
-
+<h1>Overview of Hotels</h1>
 <table border="1">
     <thead>
     <tr>
         <th>ID</th>
+        <th>Category</th>
         <th>Name</th>
+        <th>Owner</th>
+        <th>Contact</th>
         <th>Address</th>
+        <th>City</th>
+        <th>Zip</th>
+        <th>Phone</th>
+        <th>Rooms</th>
+        <th>Beds</th>
     </tr>
     </thead>
     <tbody>
@@ -26,8 +34,16 @@
         th:style="${iStat.odd}? 'font-weight: bold;'"
         th:alt-title="${iStat.even}? 'even' : 'odd'">
         <td th:text="${hotel.id}" />
+        <td th:text="${hotel.category}" />
         <td th:text="${hotel.name}" />
+        <td th:text="${hotel.owner}" />
+        <td th:text="${hotel.contact}" />
         <td th:text="${hotel.address}" />
+        <td th:text="${hotel.city}" />
+        <td th:text="${hotel.cityCode}" />
+        <td th:text="${hotel.phone}" />
+        <td th:text="${hotel.noRooms}" />
+        <td th:text="${hotel.noBeds}" />
     </tr>
     </tbody>
 </table>
