@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add new Hotel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!-- Text must be enclosed in single quotes!!! -->
+<p th:text="'Add new Hotel'" />
+
+<!-- Display a possible error text -->
+<div  th:if="${error != null }" th:text="${error}">
+    <p th:text= "'Error: ' + ${error}" />
+</div>
+
+<form action="#" th:action="@{/hotelform}" th:object="${command}" method="post">
+    <p>Hotel name: <input type="text" th:field="*{name}" /></p>
+    <p>Owner: <input type="text" th:field="*{owner}" /></p>
+    <p>Contact: <input type="text" th:field="*{contact}" /></p>
+    <p>Address: <input type="text" th:field="*{address}" /></p>
+    <p>City: <input type="text" th:field="*{city}" /></p>
+    <!-- Beware : The field name is case sensitive!!! It has to be named exactly as it is in the class!!! -->
+    <p>City Code: <input type="text" th:field="*{cityCode}" /></p>
+    <p>Hotel name: <input type="text" th:field="*{phone}" /></p>
+    <!-- The same with the room and bed count! Try to change noRooms to rooms and you will see that IntelliJ underlines the
+    // name. This is an indication that something is wrong-->
+    <p>Number of Rooms: <input type="text" th:field="*{noRooms}" /></p>
+    <p>Number of Beds: <input type="text" th:field="*{noBeds}" /></p>
+    <!--
+-->
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /> </p>
+</form>
+</body>
+</html>

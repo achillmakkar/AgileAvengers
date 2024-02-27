@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Form Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!-- Text must be enclosed in single quotes!!! -->
+<p th:text="'Here you have the data'" />
+
+<p th:text= "'Hotel name: ' + ${command.name}" />
+<p th:text= "'Textarea Value: ' + ${command.owner}" />
+<p th:text= "'Datetime Value: ' + ${command.contact}" />
+<p th:text= "'Color Value: ' + ${command.address}" />
+<p th:text= "'Single Checkbox Value: ' + ${command.city}" />
+<p th:text= "'Checkbox Value: ' + ${command.cityCode}" />
+<p th:text= "'Dropdown Value: ' + ${command.phone}" />
+<p th:text= "'Checkbox Value: ' + ${command.noRooms}" />
+<p th:text= "'Dropdown Value: ' + ${command.noBeds}" />
+
+<a href="/sampleform">resubmit form</a>
+</body>
+</html>

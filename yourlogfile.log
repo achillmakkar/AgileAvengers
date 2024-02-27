@@ -1,0 +1,35 @@
+2024-02-27 13:38:47.594  INFO 10004 --- [main] a.a.f.s.swpj4bb.touristoffice.demo.Main  : Starting Main on DESKTOP-7P8F621 with PID 10004 (started by Achill in C:\Users\Achill\OneDrive - Fachhochschule des BFI Wien GmbH\4. Semester\TouristOffice-Spring_20240214)
+2024-02-27 13:38:47.596  INFO 10004 --- [main] a.a.f.s.swpj4bb.touristoffice.demo.Main  : No active profile set, falling back to default profiles: default
+2024-02-27 13:38:48.437  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-27 13:38:48.484  INFO 10004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 1 JPA repository interfaces.
+2024-02-27 13:38:48.727  INFO 10004 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-02-27 13:38:48.945  INFO 10004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-02-27 13:38:48.958  INFO 10004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-27 13:38:48.959  INFO 10004 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2024-02-27 13:38:49.044  INFO 10004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-27 13:38:49.045  INFO 10004 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1406 ms
+2024-02-27 13:38:49.078  INFO 10004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-27 13:38:49.242  INFO 10004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-27 13:38:49.271  INFO 10004 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/hotels'
+2024-02-27 13:38:49.366  INFO 10004 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-27 13:38:49.418  INFO 10004 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.10.Final}
+2024-02-27 13:38:49.531  INFO 10004 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-02-27 13:38:49.609  INFO 10004 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-02-27 13:38:49.903  INFO 10004 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-02-27 13:38:49.909  INFO 10004 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-27 13:38:50.230  WARN 10004 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-27 13:38:50.317  INFO 10004 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-02-27 13:38:50.363  INFO 10004 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-02-27 13:38:50.500  INFO 10004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-02-27 13:38:50.503  INFO 10004 --- [main] a.a.f.s.swpj4bb.touristoffice.demo.Main  : Started Main in 3.347 seconds (JVM running for 4.116)
+2024-02-27 13:38:56.225  INFO 10004 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-27 13:38:56.226  INFO 10004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-27 13:38:56.230  INFO 10004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2024-02-27 13:38:56.264 DEBUG 10004 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select hotel0_.id as id1_0_, hotel0_.address as address2_0_, hotel0_.category as category3_0_, hotel0_.city as city4_0_, hotel0_.zip as zip5_0_, hotel0_.contact as contact6_0_, hotel0_.name as name7_0_, hotel0_.beds as beds8_0_, hotel0_.rooms as rooms9_0_, hotel0_.owner as owner10_0_, hotel0_.phone as phone11_0_ from hotel hotel0_ order by hotel0_.id limit ?
+2024-02-27 13:38:59.496 DEBUG 10004 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select hotel0_.id as id1_0_, hotel0_.address as address2_0_, hotel0_.category as category3_0_, hotel0_.city as city4_0_, hotel0_.zip as zip5_0_, hotel0_.contact as contact6_0_, hotel0_.name as name7_0_, hotel0_.beds as beds8_0_, hotel0_.rooms as rooms9_0_, hotel0_.owner as owner10_0_, hotel0_.phone as phone11_0_ from hotel hotel0_ order by hotel0_.id limit ?
+2024-02-27 13:39:01.899 DEBUG 10004 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select hotel0_.id as id1_0_, hotel0_.address as address2_0_, hotel0_.category as category3_0_, hotel0_.city as city4_0_, hotel0_.zip as zip5_0_, hotel0_.contact as contact6_0_, hotel0_.name as name7_0_, hotel0_.beds as beds8_0_, hotel0_.rooms as rooms9_0_, hotel0_.owner as owner10_0_, hotel0_.phone as phone11_0_ from hotel hotel0_ order by hotel0_.id limit ?
+2024-02-27 13:39:01.899 DEBUG 10004 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select count(hotel0_.id) as col_0_0_ from hotel hotel0_
+2024-02-27 13:39:10.431  INFO 10004 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-02-27 13:39:10.431  INFO 10004 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-27 13:39:10.431  INFO 10004 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-02-27 13:39:10.431  INFO 10004 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
