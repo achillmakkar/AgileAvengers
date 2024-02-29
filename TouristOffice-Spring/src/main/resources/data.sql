@@ -196,7 +196,7 @@ INSERT INTO Hotel VALUES (242,3,'Schlosspark Mauerbach','Durman Misael','Porchom
 INSERT INTO Hotel VALUES (363,1,'Grabner vulgo Vorderbichl','Sabatowicz Samantha-Joy','Kleber Hane','Kleindurlas 12','Michelbach','3074','7944354',42,37);
 INSERT INTO Hotel VALUES (352,1,'Schloss Klafterbrunn','Lanek Ledejna','Fili Eçrin','Rotheau 14','Eschenau','3153','7749424',8,20);
 INSERT INTO Hotel VALUES (236,2,'Gasthof Zum Niederhaus - Familie Perthold','Steuer Pasqualine','Angelesen Sannet','Markt 9','Sankt','3193','0352265',17,10);
-INSERT INTO Hotel VALUES (110,3,'Ferienhäuser','Dionysius Jawad','Rubas Theminh','3512 Unterbergern','Unterbergern',NULL,'8897234',46,40);
+INSERT INTO Hotel VALUES (110,3,'Ferienhäuser','Dionysius Jawad','Rubas Theminh','3512 Unterbergern','Unterbergern','NULL','8897234',46,40);
 INSERT INTO Hotel VALUES (223,1,'R&R Residenzen Hotel','Bodonyi Avalon','Peininger Shakeba','Schwurwiesenweg 1','Mitterbach','3224','1576804',7,27);
 INSERT INTO Hotel VALUES (282,1,'Hotel Thier','Moraw Noomi','Fuchsjäger Esra-Nur','Mönichkirchen 243','Mönichkirchen','2872','3780635',6,26);
 INSERT INTO Hotel VALUES (643,0,'Pension Landhaus Ingrid B&B','Fräuding Xavien','Haraschta Samuel-Matthias','Loich 7','Loich','3211','7380712',33,31);
