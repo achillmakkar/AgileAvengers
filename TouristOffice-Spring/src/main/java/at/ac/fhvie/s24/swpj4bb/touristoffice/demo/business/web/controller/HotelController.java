@@ -4,6 +4,7 @@ import at.ac.fhvie.s24.swpj4bb.touristoffice.demo.business.constants.Category;
 import at.ac.fhvie.s24.swpj4bb.touristoffice.demo.business.entity.Hotel;
 import at.ac.fhvie.s24.swpj4bb.touristoffice.demo.business.service.HotelService;
 import at.ac.fhvie.s24.swpj4bb.touristoffice.demo.business.validation.HotelValidator;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
