@@ -12,11 +12,28 @@
 </head>
 <body>
 
-<h1>Overview of Hotels</h1>
+<h2>Overview of Hotels</h2>
+
+<!-- Das Formular zur Auswahl der Seitengröße -->
+<form action="/index" method="get">
+    <label for="pageSize">Hotels per Page:</label>
+    <select name="size" id="pageSize">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+        <option value="2000">2000</option>
+    </select>
+    <button type="submit">Show</button>
+</form>
+
 <table border="1">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>Nr.</th>
         <th>Category</th>
         <th>Name</th>
         <th>Owner</th>
@@ -47,11 +64,13 @@
     </tr>
     </tbody>
 </table>
-<div th:if="${hotelPage.totalPages > 0}" class="pagination"
-     th:each="pageNumber : ${pageNumbers}">
-    <a th:href="@{/index(size=${hotelPage.size}, page=${pageNumber})}"
-       th:text=${pageNumber}
-       th:class="${pageNumber==hotelPage.number} ? active"></a>
+<br>
+<div th:if="${hotelPage.hasNext()}">
+    <form th:action="@{/index}" method="get">
+        <input type="hidden" name="size" th:value="${hotelPage.size}" />
+        <input type="hidden" name="page" th:value="${hotelPage.nextPageable().pageNumber + 1}" />
+        <button type="submit" class="btn btn-secondary">Next Page</button>
+    </form>
 </div>
 
 
