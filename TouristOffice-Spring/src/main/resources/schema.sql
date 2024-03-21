@@ -1,5 +1,6 @@
 /*==============================================================*/
 
+DROP TABLE IF EXISTS occupancy;
 DROP TABLE IF EXISTS hotel;
 
 /*==============================================================*/
@@ -20,3 +21,15 @@ CREATE TABLE hotel
   beds    int  not null
 );
 
+CREATE TABLE occupancy
+(
+    occupancy_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id INT,
+    rooms int NOT NULL,
+    usedrooms int NOT NULL,
+    beds int NOT NULL,
+    usedbeds int NOT NULL,
+    year int NOT NULL,
+    month int NOT NULL,
+    constraint fk_hotel foreign key (id) references hotel(id)
+);
