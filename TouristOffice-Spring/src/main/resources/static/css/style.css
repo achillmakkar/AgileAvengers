@@ -13,14 +13,19 @@ table {
 table th, table td {
     padding: 5px;
 }
-
 .topnav {
-    background-color: #333;
+    background-color: lightblue;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topnav .logo {
+    padding: 14px 16px;
 }
 
 .topnav a {
-    float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
@@ -36,4 +41,13 @@ table th, table td {
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
+}
+
+.topnav .nav-links {
+    display: flex;
+}
+
+/* Optional: Stil für das Logo, falls nötig */
+.topnav img.logo-image {
+    height: 50px; /* Oder die gewünschte Höhe */
 }

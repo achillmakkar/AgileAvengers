@@ -6,9 +6,10 @@
     <title>NOE Tourismus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static.css/style.css"><!-- CSS EINBINDUNG ACHILL -->
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <!-- CSS EINBINDUNG ACHILL -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umed/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -30,11 +31,17 @@
     </script>
 </head>
 <body>
+
 <div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#news">Button Import</a>
-    <a href="#contact">Statistics as PDF</a>
-    <a href="#help">Help</a>
+    <div class="logo">
+       <!-- LOGO -->
+    </div>
+    <div class="nav-links">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">Button Import</a>
+        <a href="#contact">Statistics as PDF</a>
+        <a href="#help">Help</a>
+    </div>
 </div>
 
 <h2>Overview of Hotels</h2>
