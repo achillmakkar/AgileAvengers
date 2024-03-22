@@ -6,11 +6,36 @@
     <title>NOE Tourismus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static.css/style.css"><!-- CSS EINBINDUNG ACHILL -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#pageSize').change(function() {
+                // Das Formular automatisch absenden, wenn eine neue Option ausgewählt wird
+                this.form.submit();
+            });
+
+            // Setzen Sie den ausgewählten Wert basierend auf dem gespeicherten Wert im localStorage
+            // oder dem Wert, der vom Server zurückgegeben wird (falls implementiert)
+            var storedSize = localStorage.getItem('selectedSize') || '10'; // Standardwert ist 10
+            $('#pageSize').val(storedSize);
+
+            // Speichern des ausgewählten Werts im localStorage, wenn das Formular abgesendet wird
+            $('#pageSize').on('change', function() {
+                localStorage.setItem('selectedSize', $(this).val());
+            });
+        });
+    </script>
 </head>
 <body>
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">Button Import</a>
+    <a href="#contact">Statistics as PDF</a>
+    <a href="#help">Help</a>
+</div>
 
 <h2>Overview of Hotels</h2>
 
@@ -28,7 +53,6 @@
         <option value="1000">1000</option>
         <option value="2000">2000</option>
     </select>
-    <button type="submit">Show</button>
 </form>
 
 <table border="1">
