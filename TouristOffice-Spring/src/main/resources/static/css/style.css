@@ -51,3 +51,69 @@ table th, table td {
 .topnav img.logo-image {
     height: 50px; /* Oder die gewünschte Höhe */
 }
+
+
+/* Hotel Seiten */
+.pagination a {
+    margin-right: 5px; /* Fügt einen Abstand zwischen den Seitenzahlen hinzu */
+}
+
+.pagination-ellipsis {
+    margin-right: 5px; /* Fügt einen Abstand nach den Ellipsen hinzu */
+}
+
+.pagination a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.pagination-container {
+    display: flex;
+    justify-content: center; /* Zentriert die Elemente horizontal */
+    align-items: center; /* Zentriert die Elemente vertikal, falls nötig */
+    margin-top: 20px; /* Optionaler Abstand von der oberen Komponente */
+    flex-wrap: wrap; /* Erlaubt das Umbrechen der Elemente auf kleinere Bildschirme */
+    width: 100%; /* Stellt sicher, dass der Container die volle Breite einnimmt */
+}
+.pagination-container {
+    justify-content: center !important;
+}
+
+.pagination a,
+.pagination span {
+    margin: 0 10px; /* Abstand zwischen den Buttons */
+    display: inline-block; /* Stellt sicher, dass alle Elemente in einer Linie sind */
+}
+
+/* Gleiche Breite für alle Button-Elemente */
+.btn-pagination {
+    min-width: 50px; /* Minimalbreite für Zahlen-Buttons, '...' und 'Previous/Next'-Buttons */
+    padding: 0.5rem 0.75rem; /* Standard Padding für Bootstrap Buttons */
+    text-align: center; /* Zentriert den Text */
+    border: 1px solid #dee2e6; /* Fügt den nicht-aktiven Elementen einen Rahmen hinzu */
+}
+
+/* Spezifischer Style für 'Previous' und 'Next' */
+.btn-previous-next {
+    min-width: 140px; /* Breite der 'Previous' und 'Next' Buttons */
+}
+
+/* Style für aktive und hover Zustände */
+.pagination a.active,
+.pagination a:hover,
+.pagination a.active:hover {
+    background-color: #0056b3; /* Hintergrundfarbe für aktive/hover Zustände */
+    border-color: #003865; /* Rahmenfarbe für aktive/hover Zustände */
+    color: white; /* Textfarbe für aktive/hover Zustände */
+}
+
+/* Style für disabled-look */
+.pagination .btn-ellipsis {
+    pointer-events: none; /* Nicht klickbar */
+    color: #6c757d; /* Textfarbe für disabled Zustand */
+    background-color: transparent;
+    border-color: #dee2e6; /* Rahmenfarbe für disabled Zustand */
+}
+.pagination-link, .btn-ellipsis {
+    margin: 0 10px; /* Sorgt für Abstand zwischen den Buttons */
+    display: inline-block; /* Stellt sicher, dass alle Elemente in einer Linie sind */
+}

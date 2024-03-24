@@ -31,31 +31,34 @@ public class MainController {
 
   @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
   public String index(final Model model,
-                      final @RequestParam("page") Optional<Integer> page,
-                      final @RequestParam("size") Optional<Integer> size) {
+                      @RequestParam("page") Optional<Integer> page,
+                      @RequestParam("size") Optional<Integer> size) {
     int currentPage = page.orElse(1);
-    // Yes, i know. A hardcoded default page size of two items. Just for demonstration
-    // purposes
     int pageSize = size.orElse(10);
 
-    // Retrieve all Hotels from database. Just mentioned here how to do it.
-    // Not of relevance here but I thougt it would be nice to show how to retrieve all
-    // records
-    // List<Hotel> hotels = hotelService.findAllOrderedById();
+    Pageable pageable = PageRequest.of(currentPage - 1, pageSize);
+    Page<Hotel> hotelPage = hotelService.findAllOrderedById(pageable);
 
-
-    // Here the page size is hardcoded. Ugly, but only for demonstration purposes
-    Pageable pageRequest = PageRequest.of(currentPage - 1, pageSize);
-    Page<Hotel> hotelsPage = hotelService.findAllOrderedById(pageRequest);
-
-    model.addAttribute("hotelPage", hotelsPage);
-    int totalPages = hotelsPage.getTotalPages();
-    if (totalPages > 0) {
-      List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-          .boxed()
-          .collect(Collectors.toList());
-      model.addAttribute("pageNumbers", pageNumbers);
+    int totalPages = hotelPage.getTotalPages();
+    int window = 2; // Anzahl der Seiten links und rechts von der aktuellen Seite
+    int start = Math.max(1, currentPage - window);
+    int end = Math.min(totalPages, currentPage + window);
+    if (start > 1) {
+      model.addAttribute("startEllipsis", true);
     }
+    if (end < totalPages) {
+      model.addAttribute("endEllipsis", true);
+    }
+
+    List<Integer> pageNumbers = IntStream.rangeClosed(start, end)
+            .boxed()
+            .collect(Collectors.toList());
+
+    model.addAttribute("hotelPage", hotelPage);
+    model.addAttribute("currentPage", currentPage);
+    model.addAttribute("totalPages", totalPages);
+    model.addAttribute("pageNumbers", pageNumbers);
+
     return "index";
   }
 

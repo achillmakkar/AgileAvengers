@@ -13,25 +13,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#pageSize').change(function() {
+            $('#pageSizeTop, #pageSizeBottom').change(function() {
                 // Das Formular automatisch absenden, wenn eine neue Option ausgewählt wird
                 this.form.submit();
             });
 
-            // Setzen Sie den ausgewählten Wert basierend auf dem gespeicherten Wert im localStorage
-            // oder dem Wert, der vom Server zurückgegeben wird (falls implementiert)
-            var storedSize = localStorage.getItem('selectedSize') || '10'; // Standardwert ist 10
-            $('#pageSize').val(storedSize);
+            // Setze den ausgewählten Wert basierend auf dem Wert im localStorage oder dem vom Server zurückgegebenen Wert
+            var storedSize = localStorage.getItem('selectedSize') || '10';
+            $('#pageSizeTop, #pageSizeBottom').val(storedSize);
 
-            // Speichern des ausgewählten Werts im localStorage, wenn das Formular abgesendet wird
-            $('#pageSize').on('change', function() {
+            // Speichere den ausgewählten Wert im localStorage, wenn das Formular abgesendet wird
+            $('#pageSizeTop, #pageSizeBottom').on('change', function() {
                 localStorage.setItem('selectedSize', $(this).val());
             });
         });
     </script>
+
 </head>
 <body>
-
+<!-- Codeanfang_#1_Achill_22.03.2024_Menue-Top -->
 <div class="topnav">
     <div class="logo">
        <!-- LOGO -->
@@ -43,25 +43,47 @@
         <a href="#help">Help</a>
     </div>
 </div>
+<!-- Codeende_#1_Achill_22.03.2024_Menue-Top -->
 
-<h2>Overview of Hotels</h2>
-
-<!-- Das Formular zur Auswahl der Seitengröße -->
 <!-- Codeanfang_#1_Achill_10.03.2024_Overview Of Hotels -->
-<form action="/index" method="get">
-    <label for="pageSize">Hotels per Page:</label>
-    <select name="size" id="pageSize">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-        <option value="200">200</option>
-        <option value="500">500</option>
-        <option value="1000">1000</option>
-        <option value="2000">2000</option>
-    </select>
-</form>
+<!-- Paginierungscontainer -->
+<div class="pagination-container">
+    <!-- Vorherige Seite, falls vorhanden -->
+    <a th:if="${hotelPage.hasPrevious()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number - 1})}" class="btn btn-secondary btn-previous-next pagination-link">Previous Page</a>
 
+    <!-- Erste Seite und auslassende Punkte, falls nötig -->
+    <a th:if="${startEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=1)}" class="btn btn-outline-secondary btn-page-number pagination-link">1</a>
+    <span th:if="${startEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
+
+    <!-- Seitennummern -->
+    <a th:each="pageNum : ${pageNumbers}" th:href="@{/index(size=${hotelPage.size}, page=${pageNum})}" th:text="${pageNum}" th:class="${pageNum == currentPage ? 'btn btn-primary btn-page-number pagination-link' : 'btn btn-outline-secondary btn-page-number pagination-link'}"></a>
+
+    <!-- Auslassende Punkte und letzte Seite, falls nötig -->
+    <span th:if="${endEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
+    <a th:if="${endEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=${totalPages})}" th:text="${totalPages}" class="btn btn-outline-secondary btn-page-number pagination-link">70</a>
+
+    <!-- Nächste Seite, falls vorhanden -->
+    <a th:if="${hotelPage.hasNext()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number + 1})}" class="btn btn-secondary btn-previous-next pagination-link">Next Page</a>
+
+    <!-- Das Formular zur Auswahl der Seitengröße -->
+    <form action="/index" method="get" class="form-inline my-2 my-lg-0">
+        <label for="pageSizeTop">Hotels per Page:</label>
+        <select name="size" id="pageSizeTop" class="form-control form-control-sm" onchange="this.form.submit()">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="2000">2000</option>
+        </select>
+    </form>
+
+</div>
+<br>
 <table border="1">
     <thead>
     <tr>
@@ -97,11 +119,38 @@
     </tbody>
 </table>
 <br>
-<div th:if="${hotelPage.hasNext()}">
-    <form th:action="@{/index}" method="get">
-        <input type="hidden" name="size" th:value="${hotelPage.size}" />
-        <input type="hidden" name="page" th:value="${hotelPage.nextPageable().pageNumber + 1}" />
-        <button type="submit" class="btn btn-secondary">Next Page</button>
+<!-- Paginierungscontainer -->
+<div class="pagination-container">
+    <!-- Vorherige Seite, falls vorhanden -->
+    <a th:if="${hotelPage.hasPrevious()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number - 1})}" class="btn btn-secondary btn-previous-next pagination-link">Previous Page</a>
+
+    <!-- Erste Seite und auslassende Punkte, falls nötig -->
+    <a th:if="${startEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=1)}" class="btn btn-outline-secondary btn-page-number pagination-link">1</a>
+    <span th:if="${startEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
+
+    <!-- Seitennummern -->
+    <a th:each="pageNum : ${pageNumbers}" th:href="@{/index(size=${hotelPage.size}, page=${pageNum})}" th:text="${pageNum}" th:class="${pageNum == currentPage ? 'btn btn-primary btn-page-number pagination-link' : 'btn btn-outline-secondary btn-page-number pagination-link'}"></a>
+
+    <!-- Auslassende Punkte und letzte Seite, falls nötig -->
+    <span th:if="${endEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
+    <a th:if="${endEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=${totalPages})}" th:text="${totalPages}" class="btn btn-outline-secondary btn-page-number pagination-link">70</a>
+
+    <!-- Nächste Seite, falls vorhanden -->
+    <a th:if="${hotelPage.hasNext()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number + 1})}" class="btn btn-secondary btn-previous-next pagination-link">Next Page</a>
+
+    <!-- Das Formular zur Auswahl der Seitengröße -->
+    <form action="/index" method="get" class="form-inline my-2 my-lg-0">
+        <label for="pageSizeBottom">Hotels per Page:</label>
+        <select name="size" id="pageSizeBottom" class="form-control form-control-sm" onchange="this.form.submit()">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="2000">2000</option>
+        </select>
     </form>
 </div>
 
