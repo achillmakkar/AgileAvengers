@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// Codeanfang_Achill_24.03.2024_OccupancyService
 @Service
 public class OccupancyService
 {
@@ -46,3 +47,4 @@ public class OccupancyService
 
     // NEUE OCCUPANCY DATEN HINZUFÜGEN MUSS NOCH PROGRAMMIERT WERDEN!!!!
 }
+// Codeende_Achill_24.03.2024_OccupancyService

@@ -23,6 +23,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+//  Codeanfang_Achill_22.03.2024_Occupancy
 public final class Occupancy {
 
     // the variable id is marked as the primary key in the database table
@@ -131,3 +132,4 @@ public final class Occupancy {
 
 
 }
+//  Codeende_Achill_24.03.2024_Occupancy

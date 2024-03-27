@@ -6,6 +6,7 @@ import at.ac.fhvie.s24.swpj4bb.touristoffice.demo.business.validation.HotelValid
 import at.ac.fhvie.s24.swpj4bb.touristoffice.demo.business.validation.OccupancyValidator;
 import org.springframework.stereotype.Controller;
 
+// Codeanfang_Achill_24.03.2024_OccupancyController
 @Controller
 public class OccupancyController
 {
@@ -20,3 +21,4 @@ public class OccupancyController
 
     // GET UND POST AUFRUFE FEHLEN!!!! ERST MÖGLICH WENN OCCUPANCY FORM FERTIG IST
 }
+// Codeende_Achill_24.03.2024_OccupancyController

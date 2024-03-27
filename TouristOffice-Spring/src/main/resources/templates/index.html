@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umed/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Codeanfang_Achill_24.03.2024_Page-Navigation -->
     <script>
         $(document).ready(function() {
             $('#pageSizeTop, #pageSizeBottom').change(function() {
@@ -28,42 +29,152 @@
             });
         });
     </script>
+    <style>
+        /* Paginierungskontainer - zentriert die Elemente */
+        .pagination-container {
+            display: flex;
+            justify-content: center; /* Zentriert die Elemente horizontal */
+            align-items: center; /* Zentriert die Elemente vertikal, falls nötig */
+            margin-top: 20px; /* Optionaler Abstand von der oberen Komponente */
+            flex-wrap: wrap; /* Erlaubt das Umbrechen der Elemente auf kleinere Bildschirme */
+            width: 100%; /* Stellt sicher, dass der Container die volle Breite einnimmt */
+        }
 
+        /* Stil für die Seitenzahlen in der Paginierung */
+        .pagination a {
+            margin: 0 10px; /* Abstand zwischen den Buttons */
+        }
+
+        /* Stil für aktiven Zustand der Seitenzahl */
+        .pagination a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .btn-pagination {
+            min-width: 50px; /* Stellt eine einheitliche Mindestbreite für alle Buttons ein */
+            padding: 0.5rem 0.75rem; /* Standard Padding */
+            text-align: center; /* Zentriert den Text */
+            margin: 0 5px; /* Abstand zwischen den Buttons */
+            border: 1px solid #dee2e6; /* Fügt den Buttons einen Rahmen hinzu */
+            display: inline-block; /* Stellt sicher, dass alle Buttons in einer Reihe sind */
+            margin-right: 10px; /* Rechtsabstand erhöhen */
+            margin-left: 10px;  /* Linksabstand erhöhen */
+        }
+
+        /* Style für den aktiven Button */
+        /* Style für den aktiven Button */
+        .btn-pagination.active {
+            background-color: #007bff; /* Blaue Hintergrundfarbe für den aktiven Button */
+            color: white; /* Weiße Textfarbe für den aktiven Button */
+            border-color: #007bff; /* Blauer Rahmen für den aktiven Button */
+        }
+
+        /* Optional: Style für Hover auf allen Buttons außer dem aktiven */
+        .btn-pagination:not(.active):hover {
+            background-color: #5bc0de; /* Eine andere Farbe für Hover */
+            color: white; /* Weiße Textfarbe für Hover */
+            border-color: #46b8da; /* Rahmenfarbe für Hover */
+        }
+        /* Stil für die obere Navigationsleiste */
+        .topnav-upper {
+            background-color: #004A99; /* Dunkelblau für das obere Nav */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem; /* Oder die gewünschte Größe */
+        }
+
+        /* Stil für die untere Navigationsleiste */
+        .topnav-lower {
+            background-color: #007bff; /* Hintergrundfarbe der unteren Nav */
+            display: flex;
+            justify-content: center; /* Zentriert die Inhalte horizontal */
+            padding: 0.5rem 0; /* Vertikaler Padding für die Leiste */
+        }
+
+        /* Stil für die Navigationslinks als Buttons innerhalb der unteren Nav */
+        .navigation-links {
+            display: flex; /* Flex-Container für die Links */
+            justify-content: center; /* Zentriert die Links innerhalb des Flex-Containers */
+            gap: 10px; /* Abstand zwischen den Buttons */
+        }
+
+        .navigation-links a {
+            padding: 8px 16px; /* Padding für die Größe der Buttons */
+            background-color: #f0ad4e; /* Orange Hintergrundfarbe */
+            color: white; /* Weiße Textfarbe */
+            text-decoration: none; /* Keine Unterstreichung */
+            border: none; /* Keine Rahmen */
+            border-radius: 4px; /* Abgerundete Ecken */
+            transition: background-color 0.3s; /* Sanfter Übergang bei Farbänderung */
+        }
+
+        .navigation-links a:hover {
+            background-color: #ec971f; /* Dunklere Farbe beim Hover */
+        }
+
+        .navigation-links a.active {
+            background-color: #d58512; /* Dunklere Farbe für den aktiven Link */
+        }
+
+        @media (max-width: 768px) {
+            .topnav-lower .navigation-links {
+                flex-direction: column; /* Stapelt die Buttons vertikal auf kleinen Bildschirmen */
+                gap: 0.5rem; /* Abstand zwischen den vertikal gestapelten Buttons */
+            }
+        }
+    </style>
+    <!-- Codeende_Achill_24.03.2024_Page-Navigation -->
 </head>
 <body>
 <!-- Codeanfang_#1_Achill_22.03.2024_Menue-Top -->
-<div class="topnav">
+<div class="topnav topnav-upper">
     <div class="logo">
-       <!-- LOGO -->
+        <img src="images/Logo.jpg" alt="Logo">
     </div>
-    <div class="nav-links">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">Button Import</a>
-        <a href="#contact">Statistics as PDF</a>
-        <a href="#help">Help</a>
+    <div class="language-controls">
+        <!-- Sprachauswahl und andere globale Steuerelemente -->
+    </div>
+    <div class="user-controls">
+        <img src="\images\deutsch-flagge.jpg" alt="Language 1">
+        <img src="\images\england-flagge.jpg" alt="Language 2">
+        <a class="btn btn-secondary" href="#help">Help</a>
+        <a class="btn btn-secondary" href="#logout">Logout</a>
     </div>
 </div>
+<!-- Zweite Navigationsleiste für Menülinks -->
+<div class="topnav topnav-lower">
+    <div class="navigation-links">
+        <a class="btn btn-secondary" href="#csv">Import CSV Data</a>
+        <a class="btn btn-secondary" href="#pdf">Statistics as PDF</a>
+        <a class="btn btn-secondary" href="#histogram">Statistics as Histogram</a>
+        <a class="btn btn-secondary" href="#subscription">Send Subscription Mail</a>
+        <a class="btn btn-secondary" href="#backup">Create and Send Backup</a>
+        <a class="btn btn-secondary" href="#deletedata">Delete Data</a>
+    </div>
+</div>
+
 <!-- Codeende_#1_Achill_22.03.2024_Menue-Top -->
 
 <!-- Codeanfang_#1_Achill_10.03.2024_Overview Of Hotels -->
 <!-- Paginierungscontainer -->
 <div class="pagination-container">
-    <!-- Vorherige Seite, falls vorhanden -->
-    <a th:if="${hotelPage.hasPrevious()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number - 1})}" class="btn btn-secondary btn-previous-next pagination-link">Previous Page</a>
-
-    <!-- Erste Seite und auslassende Punkte, falls nötig -->
-    <a th:if="${startEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=1)}" class="btn btn-outline-secondary btn-page-number pagination-link">1</a>
-    <span th:if="${startEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
+    <!-- Zur ersten Seite -->
+    <a th:if="${hotelPage.number > 1}" th:href="@{/index(size=${hotelPage.size}, page=1)}" class="btn btn-pagination">&lt;&lt;</a>
+    <!-- Zur vorherigen Seite -->
+    <a th:if="${hotelPage.hasPrevious()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number})}" class="btn btn-pagination">&lt;</a>
 
     <!-- Seitennummern -->
-    <a th:each="pageNum : ${pageNumbers}" th:href="@{/index(size=${hotelPage.size}, page=${pageNum})}" th:text="${pageNum}" th:class="${pageNum == currentPage ? 'btn btn-primary btn-page-number pagination-link' : 'btn btn-outline-secondary btn-page-number pagination-link'}"></a>
+    <a th:each="pageNum : ${pageNumbers}"
+       th:href="@{/index(size=${hotelPage.size}, page=${pageNum})}"
+       th:text="${pageNum}"
+       th:class="${pageNum == hotelPage.number + 1 ? 'btn btn-pagination active' : 'btn btn-pagination'}">
+    </a>
 
-    <!-- Auslassende Punkte und letzte Seite, falls nötig -->
-    <span th:if="${endEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
-    <a th:if="${endEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=${totalPages})}" th:text="${totalPages}" class="btn btn-outline-secondary btn-page-number pagination-link">70</a>
-
-    <!-- Nächste Seite, falls vorhanden -->
-    <a th:if="${hotelPage.hasNext()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number + 1})}" class="btn btn-secondary btn-previous-next pagination-link">Next Page</a>
+    <!-- Zur nächsten Seite -->
+    <a th:if="${hotelPage.hasNext()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number + 2})}" class="btn btn-pagination">&gt;</a>
+    <!-- Zur letzten Seite -->
+    <a th:if="${hotelPage.number + 1 < totalPages}" th:href="@{/index(size=${hotelPage.size}, page=${totalPages})}" class="btn btn-pagination">&gt;&gt;</a>
 
     <!-- Das Formular zur Auswahl der Seitengröße -->
     <form action="/index" method="get" class="form-inline my-2 my-lg-0">
@@ -71,17 +182,13 @@
         <select name="size" id="pageSizeTop" class="form-control form-control-sm" onchange="this.form.submit()">
             <option value="10">10</option>
             <option value="20">20</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
             <option value="50">50</option>
             <option value="100">100</option>
             <option value="200">200</option>
             <option value="500">500</option>
             <option value="1000">1000</option>
-            <option value="2000">2000</option>
         </select>
     </form>
-
 </div>
 <br>
 <table border="1">
@@ -121,26 +228,26 @@
 <br>
 <!-- Paginierungscontainer -->
 <div class="pagination-container">
-    <!-- Vorherige Seite, falls vorhanden -->
-    <a th:if="${hotelPage.hasPrevious()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number - 1})}" class="btn btn-secondary btn-previous-next pagination-link">Previous Page</a>
-
-    <!-- Erste Seite und auslassende Punkte, falls nötig -->
-    <a th:if="${startEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=1)}" class="btn btn-outline-secondary btn-page-number pagination-link">1</a>
-    <span th:if="${startEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
+    <!-- Zur ersten Seite -->
+    <a th:if="${hotelPage.number > 1}" th:href="@{/index(size=${hotelPage.size}, page=1)}" class="btn btn-pagination">&lt;&lt;</a>
+    <!-- Zur vorherigen Seite -->
+    <a th:if="${hotelPage.hasPrevious()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number})}" class="btn btn-pagination">&lt;</a>
 
     <!-- Seitennummern -->
-    <a th:each="pageNum : ${pageNumbers}" th:href="@{/index(size=${hotelPage.size}, page=${pageNum})}" th:text="${pageNum}" th:class="${pageNum == currentPage ? 'btn btn-primary btn-page-number pagination-link' : 'btn btn-outline-secondary btn-page-number pagination-link'}"></a>
+    <a th:each="pageNum : ${pageNumbers}"
+       th:href="@{/index(size=${hotelPage.size}, page=${pageNum})}"
+       th:text="${pageNum}"
+       th:class="${pageNum == hotelPage.number + 1 ? 'btn btn-pagination active' : 'btn btn-pagination'}">
+    </a>
 
-    <!-- Auslassende Punkte und letzte Seite, falls nötig -->
-    <span th:if="${endEllipsis}" class="btn btn-outline-secondary btn-ellipsis pagination-link">...</span>
-    <a th:if="${endEllipsis}" th:href="@{/index(size=${hotelPage.size}, page=${totalPages})}" th:text="${totalPages}" class="btn btn-outline-secondary btn-page-number pagination-link">70</a>
-
-    <!-- Nächste Seite, falls vorhanden -->
-    <a th:if="${hotelPage.hasNext()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number + 1})}" class="btn btn-secondary btn-previous-next pagination-link">Next Page</a>
+    <!-- Zur nächsten Seite -->
+    <a th:if="${hotelPage.hasNext()}" th:href="@{/index(size=${hotelPage.size}, page=${hotelPage.number + 2})}" class="btn btn-pagination">&gt;</a>
+    <!-- Zur letzten Seite -->
+    <a th:if="${hotelPage.number + 1 < totalPages}" th:href="@{/index(size=${hotelPage.size}, page=${totalPages})}" class="btn btn-pagination">&gt;&gt;</a>
 
     <!-- Das Formular zur Auswahl der Seitengröße -->
     <form action="/index" method="get" class="form-inline my-2 my-lg-0">
-        <label for="pageSizeBottom">Hotels per Page:</label>
+        <label for="pageSizeTop">Hotels per Page:</label>
         <select name="size" id="pageSizeBottom" class="form-control form-control-sm" onchange="this.form.submit()">
             <option value="10">10</option>
             <option value="20">20</option>
@@ -149,7 +256,6 @@
             <option value="200">200</option>
             <option value="500">500</option>
             <option value="1000">1000</option>
-            <option value="2000">2000</option>
         </select>
     </form>
 </div>

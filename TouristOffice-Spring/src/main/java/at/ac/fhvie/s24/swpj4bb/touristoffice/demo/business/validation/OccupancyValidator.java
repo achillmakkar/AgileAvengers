@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 /**
  * Validation class for the Occupancy class
  */
+
+// Codeanfang_Achill_24.03.2024_OccupancyValidator
 @Component
 public class OccupancyValidator extends ValidationSupport implements Validator<Occupancy> {
 
@@ -69,5 +71,5 @@ public class OccupancyValidator extends ValidationSupport implements Validator<O
         return "Monat muss größer als 0 sein (Ist:" + errorValue + ").\n";
     }
 
-
 }
+// Codeende_Achill_24.03.2024_OccupancyValidator

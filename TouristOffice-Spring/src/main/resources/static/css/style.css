@@ -13,107 +13,97 @@ table {
 table th, table td {
     padding: 5px;
 }
-.topnav {
-    background-color: lightblue;
-    overflow: hidden;
+/* Stil für die obere Navigationsleiste */
+.topnav-upper {
+    background-color: #004A99; /* Dunkelblau für das obere Nav */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 1rem; /* Oder die gewünschte Größe */
 }
 
-.topnav .logo {
-    padding: 14px 16px;
-}
-
-.topnav a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-}
-
-.topnav .nav-links {
+/* Stil für die untere Navigationsleiste */
+.topnav-lower {
+    background-color: #007bff; /* Hintergrundfarbe der unteren Nav */
     display: flex;
+    justify-content: center; /* Zentriert die Inhalte horizontal */
+    padding: 0.5rem 0; /* Vertikaler Padding für die Leiste */
 }
 
-/* Optional: Stil für das Logo, falls nötig */
-.topnav img.logo-image {
-    height: 50px; /* Oder die gewünschte Höhe */
+/* Stil für die Navigationslinks als Buttons innerhalb der unteren Nav */
+.navigation-links {
+    display: flex; /* Flex-Container für die Links */
+    justify-content: center; /* Zentriert die Links innerhalb des Flex-Containers */
+    gap: 10px; /* Abstand zwischen den Buttons */
 }
 
-
-/* Hotel Seiten */
-.pagination a {
-    margin-right: 5px; /* Fügt einen Abstand zwischen den Seitenzahlen hinzu */
+.navigation-links a {
+    padding: 8px 16px; /* Padding für die Größe der Buttons */
+    background-color: #f0ad4e; /* Orange Hintergrundfarbe */
+    color: white; /* Weiße Textfarbe */
+    text-decoration: none; /* Keine Unterstreichung */
+    border: none; /* Keine Rahmen */
+    border-radius: 4px; /* Abgerundete Ecken */
+    transition: background-color 0.3s; /* Sanfter Übergang bei Farbänderung */
 }
 
-.pagination-ellipsis {
-    margin-right: 5px; /* Fügt einen Abstand nach den Ellipsen hinzu */
+.navigation-links a:hover {
+    background-color: #ec971f; /* Dunklere Farbe beim Hover */
 }
 
-.pagination a.active {
-    font-weight: bold;
-    text-decoration: underline;
+.navigation-links a.active {
+    background-color: #d58512; /* Dunklere Farbe für den aktiven Link */
 }
+
+@media (max-width: 768px) {
+    .topnav-lower .navigation-links {
+        flex-direction: column; /* Stapelt die Buttons vertikal auf kleinen Bildschirmen */
+        gap: 0.5rem; /* Abstand zwischen den vertikal gestapelten Buttons */
+    }
+}
+
+/* Paginierungskontainer - zentriert die Elemente */
 .pagination-container {
-    display: flex;
-    justify-content: center; /* Zentriert die Elemente horizontal */
-    align-items: center; /* Zentriert die Elemente vertikal, falls nötig */
-    margin-top: 20px; /* Optionaler Abstand von der oberen Komponente */
-    flex-wrap: wrap; /* Erlaubt das Umbrechen der Elemente auf kleinere Bildschirme */
-    width: 100%; /* Stellt sicher, dass der Container die volle Breite einnimmt */
-}
-.pagination-container {
-    justify-content: center !important;
-}
+        display: flex;
+        justify-content: center; /* Zentriert die Elemente horizontal */
+        align-items: center; /* Zentriert die Elemente vertikal, falls nötig */
+        margin-top: 20px; /* Optionaler Abstand von der oberen Komponente */
+        flex-wrap: wrap; /* Erlaubt das Umbrechen der Elemente auf kleinere Bildschirme */
+        width: 100%; /* Stellt sicher, dass der Container die volle Breite einnimmt */
+    }
 
-.pagination a,
-.pagination span {
-    margin: 0 10px; /* Abstand zwischen den Buttons */
-    display: inline-block; /* Stellt sicher, dass alle Elemente in einer Linie sind */
-}
+    /* Stil für die Seitenzahlen in der Paginierung */
+    .pagination a {
+        margin: 0 10px; /* Abstand zwischen den Buttons */
+    }
 
-/* Gleiche Breite für alle Button-Elemente */
-.btn-pagination {
-    min-width: 50px; /* Minimalbreite für Zahlen-Buttons, '...' und 'Previous/Next'-Buttons */
-    padding: 0.5rem 0.75rem; /* Standard Padding für Bootstrap Buttons */
-    text-align: center; /* Zentriert den Text */
-    border: 1px solid #dee2e6; /* Fügt den nicht-aktiven Elementen einen Rahmen hinzu */
-}
+    /* Stil für aktiven Zustand der Seitenzahl */
+    .pagination a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 
-/* Spezifischer Style für 'Previous' und 'Next' */
-.btn-previous-next {
-    min-width: 140px; /* Breite der 'Previous' und 'Next' Buttons */
-}
+    .btn-pagination {
+        min-width: 50px; /* Stellt eine einheitliche Mindestbreite für alle Buttons ein */
+        padding: 0.5rem 0.75rem; /* Standard Padding */
+        text-align: center; /* Zentriert den Text */
+        margin: 0 5px; /* Abstand zwischen den Buttons */
+        border: 1px solid #dee2e6; /* Fügt den Buttons einen Rahmen hinzu */
+        display: inline-block; /* Stellt sicher, dass alle Buttons in einer Reihe sind */
+        margin-right: 10px; /* Rechtsabstand erhöhen */
+        margin-left: 10px; /* Linksabstand erhöhen */
+    }
 
-/* Style für aktive und hover Zustände */
-.pagination a.active,
-.pagination a:hover,
-.pagination a.active:hover {
-    background-color: #0056b3; /* Hintergrundfarbe für aktive/hover Zustände */
-    border-color: #003865; /* Rahmenfarbe für aktive/hover Zustände */
-    color: white; /* Textfarbe für aktive/hover Zustände */
-}
+    /* Style für den aktiven Button */
+    .btn-pagination.active {
+        background-color: #007bff; /* Blaue Hintergrundfarbe für den aktiven Button */
+        color: white; /* Weiße Textfarbe für den aktiven Button */
+        border-color: #007bff; /* Blauer Rahmen für den aktiven Button */
+    }
 
-/* Style für disabled-look */
-.pagination .btn-ellipsis {
-    pointer-events: none; /* Nicht klickbar */
-    color: #6c757d; /* Textfarbe für disabled Zustand */
-    background-color: transparent;
-    border-color: #dee2e6; /* Rahmenfarbe für disabled Zustand */
-}
-.pagination-link, .btn-ellipsis {
-    margin: 0 10px; /* Sorgt für Abstand zwischen den Buttons */
-    display: inline-block; /* Stellt sicher, dass alle Elemente in einer Linie sind */
-}
+    /* Optional: Style für Hover auf allen Buttons außer dem aktiven */
+    .btn-pagination:not(.active):hover {
+        background-color: #5bc0de; /* Eine andere Farbe für Hover */
+        color: white; /* Weiße Textfarbe für Hover */
+        border-color: #46b8da; /* Rahmenfarbe für Hover */
+    }
